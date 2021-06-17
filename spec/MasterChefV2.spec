@@ -11,7 +11,7 @@
 // Declaration of contracts used in the sepc 
 using DummyERC20A as tokenA
 using DummyERC20B as tokenB
-using DummySUSHI as sushiToken
+using DummySUSHI as TiramisuToken
 
 /*
  * Declaration of methods that are used in the rules.
@@ -299,15 +299,15 @@ rule sushiGivenInHarvestEqualsPendingSushi(uint256 pid, address user, address to
 	env e;
 
 	require to == user && user != currentContract && e.msg.sender == user;
-	require sushiToken == SUSHI();
+	require TiramisuToken == SUSHI();
 
-	uint256 userSushiBalance = sushiToken.balanceOf(e, user);
+	uint256 userSushiBalance = TiramisuToken.balanceOf(e, user);
 	uint256 userPendingSushi = pendingSushi(e, pid, user);
 
 	// Does success return value matters? Check with Nurit
 	harvest(e, pid, to);
 
-	uint256 userSushiBalance_ = sushiToken.balanceOf(e, user);
+	uint256 userSushiBalance_ = TiramisuToken.balanceOf(e, user);
 
 	assert(userSushiBalance_ == (userSushiBalance + userPendingSushi),
 		   "pending sushi not equal to the sushi given in harvest");

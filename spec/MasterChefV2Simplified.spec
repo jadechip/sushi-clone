@@ -8,7 +8,7 @@
 // Declaration of contracts used in the sepc 
 using DummyERC20A as tokenA
 using DummyERC20B as tokenB
-using DummySUSHI as sushiToken
+using DummySUSHI as TiramisuToken
 
 /*
  * Declaration of methods that are used in the rules.
@@ -57,7 +57,7 @@ methods {
 
 	// SUSHI token
 	SUSHI() returns (address) envfree // NOT USED
-	sushiToken.balanceOf(address) returns (uint256) // NOT USED
+	TiramisuToken.balanceOf(address) returns (uint256) // NOT USED
 
 	// Dummy ERC20
 	tokenA.balanceOf(address) returns (uint256) // NOT USED

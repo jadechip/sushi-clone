@@ -3,7 +3,7 @@ import { advanceBlockTo, advanceBlock, prepare, deploy, getBigNumber, ADDRESS_ZE
 
 describe("MasterChefV2", function () {
   before(async function () {
-    await prepare(this, ['MasterChef', 'SushiToken', 'ERC20Mock', 'MasterChefV2', 'RewarderMock', 'RewarderBrokenMock'])
+    await prepare(this, ['MasterChef', 'TiramisuToken', 'ERC20Mock', 'MasterChefV2', 'RewarderMock', 'RewarderBrokenMock'])
     await deploy(this, [
       ["brokenRewarder", this.RewarderBrokenMock]
     ])
@@ -11,7 +11,7 @@ describe("MasterChefV2", function () {
 
   beforeEach(async function () {
     await deploy(this, [
-      ["sushi", this.SushiToken],
+      ["sushi", this.TiramisuToken],
     ])
 
     await deploy(this,

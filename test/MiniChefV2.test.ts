@@ -5,7 +5,7 @@ import {ethers} from "hardhat"
 
 describe("MiniChefV2", function () {
   before(async function () {
-    await prepare(this, ['MiniChefV2', 'SushiToken', 'ERC20Mock', 'RewarderMock', 'RewarderBrokenMock'])
+    await prepare(this, ['MiniChefV2', 'TiramisuToken', 'ERC20Mock', 'RewarderMock', 'RewarderBrokenMock'])
     await deploy(this, [
       ["brokenRewarder", this.RewarderBrokenMock]
     ])
@@ -13,7 +13,7 @@ describe("MiniChefV2", function () {
 
   beforeEach(async function () {
     await deploy(this, [
-      ["sushi", this.SushiToken],
+      ["sushi", this.TiramisuToken],
     ])
 
     await deploy(this,
